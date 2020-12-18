@@ -1,0 +1,73 @@
+{
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "8k0h54kbe6bj"
+      }
+    },
+    "id": "embeddedVideo",
+    "type": "ContentType",
+    "createdAt": "2020-08-13T16:06:06.986Z",
+    "updatedAt": "2020-08-18T08:34:16.998Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 7,
+    "publishedAt": "2020-08-18T08:34:16.998Z",
+    "firstPublishedAt": "2020-08-13T16:06:07.587Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "publishedCounter": 4,
+    "version": 8,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    }
+  },
+  "displayField": "title",
+  "name": "Embedded video",
+  "description": "YouTube or Vimeo",
+  "fields": [
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "url",
+      "name": "url",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    }
+  ]
+}

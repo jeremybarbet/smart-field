@@ -1,0 +1,91 @@
+{
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "8k0h54kbe6bj"
+      }
+    },
+    "id": "sliceConnectedComponent",
+    "type": "ContentType",
+    "createdAt": "2020-11-06T09:38:33.593Z",
+    "updatedAt": "2020-11-06T11:01:35.718Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 25,
+    "publishedAt": "2020-11-06T11:01:35.718Z",
+    "firstPublishedAt": "2020-11-06T09:38:34.348Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "publishedCounter": 13,
+    "version": 26,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    }
+  },
+  "displayField": "title",
+  "name": "Slice: Connected component",
+  "description": "",
+  "fields": [
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "type",
+      "name": "Type",
+      "type": "Symbol",
+      "localized": false,
+      "required": false,
+      "validations": [
+        {
+          "in": [
+            "None",
+            "Skilavottord/CompanyList",
+            "Skilavottord/CompanyListConnected"
+          ]
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "json",
+      "name": "JSON",
+      "type": "Object",
+      "localized": true,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+---
+name: Smart Field
+route: /smart-field
+menu: Editors
+order: 1
+---
+
+import Readme from '../README.md';
+
+<Readme />
+
+import { Playground, Props } from 'docz';
+import { SmartFieldEditor } from './SmartFieldEditor.tsx';
+import {
+  createFakeFieldAPI,
+  createFakeLocalesAPI,
+  createFakeSpaceAPI,
+  createFakeNavigatorAPI,
+  ActionsPlayground,
+} from '@contentful/field-editor-test-utils';
+import { openRichTextDialog } from '@contentful/field-editor-rich-text';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { css } from 'emotion';
+
+import article from '../../reference/src/__fixtures__/article.entry.json';
+import publishedAsset from '../../reference/src/__fixtures__/published_asset.json';
+
+## In Action
+
+<Playground>
+  {() => {
+    const [field, mitt] = createFakeFieldAPI();
+    const locales = createFakeLocalesAPI();
+    const space = createFakeSpaceAPI();
+    const navigator = createFakeNavigatorAPI();
+
+    const rtPreviewStyle = css({
+      backgroundColor: 'whitesmoke',
+      padding: '0 0.5em'
+    });
+
+    const newEntitySelectorDummyDialog = (fnName, type) => async () => {
+      return confirm(`sdk.dialogs.${fnName}()\nSimulate selecting a random entity or cancel?`)
+        ? {
+            sys: {
+              id: Math.random()
+                .toString(36)
+                .substring(7),
+              type
+            }
+          }
+        : Promise.reject(); // Simulate cancellation.
+    };
+
+    let sdk = {
+      space: {
+        ...space,
+        getEntry: () => {
+          return Promise.resolve(article[0]);
+        },
+        getAsset: () => {
+          return Promise.resolve(publishedAsset);
+        },
+        getEntityScheduledActions: () => {
+          return Promise.resolve([]);
+        },
+        getAssets: () => {
+          return Promise.resolve({ items: [publishedAsset] });
+        }
+      },
+      field,
+      locales: createFakeLocalesAPI(),
+      navigator: {
+        ...navigator,
+        onSlideInNavigation: () => {
+          return () => {};
+        }
+      },
+      dialogs: {
+        selectSingleAsset: newEntitySelectorDummyDialog('selectSingleAsset', 'Asset'),
+        selectSingleEntry: newEntitySelectorDummyDialog('selectSingleEntry', 'Entry')
+      },
+      access: {
+        can: (access, entityType) => {
+          if (entityType === 'Asset') {
+            if (access === 'create') {
+              return Promise.resolve(false);
+            }
+            if (access === 'read') {
+              return Promise.resolve(true);
+            }
+          }
+          return Promise.resolve(false);
+        }
+      },
+      parameters: {
+        instance: {
+          getEntryUrl: () => '#'
+        }
+      }
+    };
+
+    sdk.dialogs.openCurrent = openRichTextDialog(sdk);
+
+    const renderRT = (value, type) => {
+      const logValue = () => {
+        console.log(type, value);
+      };
+      const valueString = JSON.stringify(value, null, 2);
+      const valueDom = documentToReactComponents(value);
+      return (
+        <div className={rtPreviewStyle} title={valueString} onClick={logValue}>
+          {valueDom}
+        </div>
+      );
+    };
+
+    window.richTextField = field;
+
+    return (
+      <div>
+        <SmartFieldEditor sdk={sdk} isInitiallyDisabled={false} />
+        <ActionsPlayground mitt={mitt} renderValue={renderRT} />
+      </div>
+    );
+
+}}
+
+</Playground>
+
+## Props
+
+<Props of={SmartFieldEditor} />

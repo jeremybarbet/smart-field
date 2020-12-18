@@ -1,0 +1,101 @@
+{
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "8k0h54kbe6bj"
+      }
+    },
+    "id": "articleSubgroup",
+    "type": "ContentType",
+    "createdAt": "2020-09-10T09:07:47.554Z",
+    "updatedAt": "2020-09-22T15:53:50.122Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 13,
+    "publishedAt": "2020-09-22T15:53:50.122Z",
+    "firstPublishedAt": "2020-09-10T09:07:48.274Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "0uqwLYRATZ7JKRifb75tAU"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "0uqwLYRATZ7JKRifb75tAU"
+      }
+    },
+    "publishedCounter": 7,
+    "version": 14,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "0uqwLYRATZ7JKRifb75tAU"
+      }
+    }
+  },
+  "displayField": "title",
+  "name": "Article Subgroup",
+  "description": "Used inside groups to further categorize articles by subject",
+  "fields": [
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "unique": true
+        },
+        {
+          "prohibitRegexp": {
+            "pattern": "Annað",
+            "flags": null
+          },
+          "message": "Articles *without* subgroups show under \"Annað\" or \"Other\"."
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "slug",
+      "name": "Slug",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "importance",
+      "name": "Importance",
+      "type": "Integer",
+      "localized": false,
+      "required": false,
+      "validations": [
+        {
+          "range": {
+            "min": 0,
+            "max": 1000
+          }
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    }
+  ]
+}

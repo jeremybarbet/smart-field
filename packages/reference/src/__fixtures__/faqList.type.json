@@ -1,0 +1,84 @@
+{
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "8k0h54kbe6bj"
+      }
+    },
+    "id": "faqList",
+    "type": "ContentType",
+    "createdAt": "2020-06-22T10:57:54.854Z",
+    "updatedAt": "2020-08-18T08:44:09.928Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 7,
+    "publishedAt": "2020-08-18T08:44:09.928Z",
+    "firstPublishedAt": "2020-06-22T10:57:55.255Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "publishedCounter": 4,
+    "version": 8,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    }
+  },
+  "displayField": "title",
+  "name": "FAQ list",
+  "description": "",
+  "fields": [
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "questions",
+      "name": "Questions",
+      "type": "Array",
+      "localized": true,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false,
+      "items": {
+        "type": "Link",
+        "validations": [
+          {
+            "linkContentType": [
+              "questionAndAnswer"
+            ]
+          }
+        ],
+        "linkType": "Entry"
+      }
+    }
+  ]
+}

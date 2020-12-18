@@ -1,27 +1,27 @@
 import React from 'react';
-import { AssetCard } from '@contentful/forma-36-react-components';
-import { renderActions, renderAssetInfo } from './AssetCardActions';
-import { File, Asset } from '../../types';
+// import { AssetCard } from '@contentful/forma-36-react-components';
+// import { renderActions, renderAssetInfo } from './AssetCardActions';
+import { /*File,*/ Asset } from '../../types';
 import { entityHelpers } from '@contentful/field-editor-shared';
 import { MissingEntityCard } from '../../components';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
-import mimetype from '@contentful/mimetype';
+// import mimetype from '@contentful/mimetype';
 
-const groupToIconMap = {
-  image: 'image',
-  video: 'video',
-  audio: 'audio',
-  richtext: 'richtext',
-  presentation: 'presentation',
-  spreadsheet: 'spreadsheet',
-  pdfdocument: 'pdf',
-  archive: 'archive',
-  plaintext: 'plaintext',
-  code: 'code',
-  markup: 'markup',
-};
+// const groupToIconMap = {
+//   image: 'image',
+//   video: 'video',
+//   audio: 'audio',
+//   richtext: 'richtext',
+//   presentation: 'presentation',
+//   spreadsheet: 'spreadsheet',
+//   pdfdocument: 'pdf',
+//   archive: 'archive',
+//   plaintext: 'plaintext',
+//   code: 'code',
+//   markup: 'markup',
+// };
 
 export interface WrappedAssetCardProps {
   asset: Asset;
@@ -43,30 +43,30 @@ const defaultProps = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getFileType(file?: File): any {
-  if (!file) {
-    return 'archive';
-  }
+// function getFileType(file?: File): any {
+//   if (!file) {
+//     return 'archive';
+//   }
 
-  const groupName: keyof typeof groupToIconMap = mimetype.getGroupLabel({
-    type: file.contentType,
-    fallbackFileName: file.fileName,
-  });
+//   const groupName: keyof typeof groupToIconMap = mimetype.getGroupLabel({
+//     type: file.contentType,
+//     fallbackFileName: file.fileName,
+//   });
 
-  return groupToIconMap[groupName] || 'archive';
-}
+//   return groupToIconMap[groupName] || 'archive';
+// }
 
 export const WrappedAssetCard = (props: WrappedAssetCardProps) => {
-  const {
-    className,
-    onEdit,
-    getAssetUrl,
-    onRemove,
-    size,
-    isDisabled,
-    isSelected,
-    isClickable,
-  } = props;
+  // const {
+  //   className,
+  //   onEdit,
+  //   getAssetUrl,
+  //   onRemove,
+  //   size,
+  //   isDisabled,
+  //   isSelected,
+  //   isClickable,
+  // } = props;
 
   const status = entityHelpers.getEntryStatus(props.asset.sys);
 
@@ -92,6 +92,16 @@ export const WrappedAssetCard = (props: WrappedAssetCardProps) => {
     ? props.asset.fields.file[props.localeCode] || props.asset.fields.file[props.defaultLocaleCode]
     : undefined;
 
+  const obj = {
+    entityFile,
+    entityTitle,
+    status,
+    props,
+  };
+
+  return <div>{JSON.stringify(obj, null, 2)}</div>;
+
+  /*
   return (
     <AssetCard
       type={getFileType(entityFile)}
@@ -125,6 +135,7 @@ export const WrappedAssetCard = (props: WrappedAssetCardProps) => {
       size={size}
     />
   );
+  */
 };
 
 WrappedAssetCard.defaultProps = defaultProps;

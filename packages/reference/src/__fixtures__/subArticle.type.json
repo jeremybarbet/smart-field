@@ -1,0 +1,106 @@
+{
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "8k0h54kbe6bj"
+      }
+    },
+    "id": "subArticle",
+    "type": "ContentType",
+    "createdAt": "2020-09-09T12:03:12.030Z",
+    "updatedAt": "2020-09-20T16:58:08.424Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 3,
+    "publishedAt": "2020-09-20T16:58:08.424Z",
+    "firstPublishedAt": "2020-09-09T12:03:12.608Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "publishedCounter": 2,
+    "version": 4,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    }
+  },
+  "displayField": "title",
+  "name": "Baby Article",
+  "description": "A sub article that's a part of another main article",
+  "fields": [
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "slug",
+      "name": "Slug",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "content",
+      "name": "Content",
+      "type": "RichText",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "enabledNodeTypes": [
+            "heading-2",
+            "heading-3",
+            "heading-4",
+            "heading-5",
+            "heading-6",
+            "ordered-list",
+            "unordered-list",
+            "hr",
+            "blockquote",
+            "embedded-entry-block",
+            "embedded-asset-block",
+            "hyperlink",
+            "entry-hyperlink",
+            "asset-hyperlink"
+          ],
+          "message": "Only heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, and link to asset nodes are allowed"
+        },
+        {
+          "nodes": {}
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    }
+  ]
+}

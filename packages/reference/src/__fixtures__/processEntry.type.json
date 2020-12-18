@@ -1,0 +1,119 @@
+{
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "8k0h54kbe6bj"
+      }
+    },
+    "id": "processEntry",
+    "type": "ContentType",
+    "createdAt": "2020-06-07T21:32:58.277Z",
+    "updatedAt": "2020-11-13T10:31:15.916Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 49,
+    "publishedAt": "2020-11-13T10:31:15.916Z",
+    "firstPublishedAt": "2020-06-07T21:32:58.751Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "0j5mny0PkwcNN2DHmXicwi"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "publishedCounter": 25,
+    "version": 50,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    }
+  },
+  "displayField": "processTitle",
+  "name": "Process entry",
+  "description": "",
+  "fields": [
+    {
+      "id": "type",
+      "name": "Type",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "in": [
+            "Digital",
+            "Not digital",
+            "Digital w/login",
+            "Not digital w/login",
+            "No type"
+          ]
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "processTitle",
+      "name": "Process title",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "processLink",
+      "name": "Process link",
+      "type": "Text",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "regexp": {
+            "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-/]))?$"
+          }
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "openLinkInModal",
+      "name": "Open link in modal",
+      "type": "Boolean",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "buttonText",
+      "name": "Button text",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    }
+  ]
+}

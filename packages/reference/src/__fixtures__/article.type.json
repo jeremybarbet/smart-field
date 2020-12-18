@@ -1,0 +1,449 @@
+{
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "8k0h54kbe6bj"
+      }
+    },
+    "id": "article",
+    "type": "ContentType",
+    "createdAt": "2020-06-07T21:35:58.130Z",
+    "updatedAt": "2020-11-06T10:12:46.385Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 115,
+    "publishedAt": "2020-11-06T10:12:46.385Z",
+    "firstPublishedAt": "2020-06-07T21:35:58.545Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "0j5mny0PkwcNN2DHmXicwi"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "publishedCounter": 58,
+    "version": 116,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    }
+  },
+  "displayField": "title",
+  "name": "Article",
+  "description": "",
+  "fields": [
+    {
+      "id": "contentStatus",
+      "name": "Content status",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "in": [
+            "Undefined",
+            "Needs work",
+            "In review",
+            "Needs translation",
+            "In translation",
+            "Done"
+          ]
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "unique": true
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "shortTitle",
+      "name": "Short title",
+      "type": "Symbol",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "intro",
+      "name": "Summary",
+      "type": "Text",
+      "localized": true,
+      "required": false,
+      "validations": [
+        {
+          "size": {
+            "min": 0,
+            "max": 160
+          }
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "slug",
+      "name": "Slug",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "unique": true
+        },
+        {
+          "regexp": {
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "flags": null
+          }
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "content",
+      "name": "Content",
+      "type": "RichText",
+      "localized": true,
+      "required": false,
+      "validations": [
+        {
+          "enabledNodeTypes": [
+            "heading-2",
+            "heading-4",
+            "heading-5",
+            "heading-6",
+            "ordered-list",
+            "unordered-list",
+            "hr",
+            "blockquote",
+            "embedded-entry-block",
+            "embedded-asset-block",
+            "hyperlink",
+            "entry-hyperlink",
+            "asset-hyperlink",
+            "heading-3"
+          ],
+          "message": "Only heading 2, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and heading 3 nodes are allowed"
+        },
+        {
+          "nodes": {
+            "embedded-entry-block": [
+              {
+                "linkContentType": [
+                  "embeddedVideo",
+                  "faqList",
+                  "processEntry",
+                  "sliceConnectedComponent",
+                  "statistics"
+                ],
+                "message": null
+              }
+            ]
+          }
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "containsApplicationForm",
+      "name": "Contains application form?",
+      "type": "Boolean",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "category",
+      "name": "Category (Main)",
+      "type": "Link",
+      "localized": true,
+      "required": false,
+      "validations": [
+        {
+          "linkContentType": [
+            "articleCategory"
+          ]
+        }
+      ],
+      "disabled": false,
+      "omitted": false,
+      "linkType": "Entry"
+    },
+    {
+      "id": "group",
+      "name": "Group (Main)",
+      "type": "Link",
+      "localized": true,
+      "required": false,
+      "validations": [
+        {
+          "linkContentType": [
+            "articleGroup"
+          ]
+        }
+      ],
+      "disabled": false,
+      "omitted": false,
+      "linkType": "Entry"
+    },
+    {
+      "id": "subgroup",
+      "name": "Subgroup (Main)",
+      "type": "Link",
+      "localized": false,
+      "required": false,
+      "validations": [
+        {
+          "linkContentType": [
+            "articleSubgroup"
+          ]
+        }
+      ],
+      "disabled": false,
+      "omitted": false,
+      "linkType": "Entry"
+    },
+    {
+      "id": "otherCategories",
+      "name": "Other categories",
+      "type": "Array",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false,
+      "items": {
+        "type": "Link",
+        "validations": [
+          {
+            "linkContentType": [
+              "articleCategory"
+            ]
+          }
+        ],
+        "linkType": "Entry"
+      }
+    },
+    {
+      "id": "otherGroups",
+      "name": "Other groups",
+      "type": "Array",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false,
+      "items": {
+        "type": "Link",
+        "validations": [
+          {
+            "linkContentType": [
+              "articleGroup"
+            ]
+          }
+        ],
+        "linkType": "Entry"
+      }
+    },
+    {
+      "id": "otherSubgroups",
+      "name": "Other subgroups",
+      "type": "Array",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false,
+      "items": {
+        "type": "Link",
+        "validations": [
+          {
+            "linkContentType": [
+              "articleSubgroup"
+            ]
+          }
+        ],
+        "linkType": "Entry"
+      }
+    },
+    {
+      "id": "organization",
+      "name": "Organization",
+      "type": "Array",
+      "localized": true,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false,
+      "items": {
+        "type": "Link",
+        "validations": [
+          {
+            "linkContentType": [
+              "organization"
+            ]
+          }
+        ],
+        "linkType": "Entry"
+      }
+    },
+    {
+      "id": "relatedArticles",
+      "name": "Related Articles",
+      "type": "Array",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false,
+      "items": {
+        "type": "Link",
+        "validations": [
+          {
+            "linkContentType": [
+              "article"
+            ]
+          }
+        ],
+        "linkType": "Entry"
+      }
+    },
+    {
+      "id": "subArticles",
+      "name": "Baby Articles",
+      "type": "Array",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false,
+      "items": {
+        "type": "Link",
+        "validations": [
+          {
+            "linkContentType": [
+              "subArticle"
+            ]
+          }
+        ],
+        "linkType": "Entry"
+      }
+    },
+    {
+      "id": "importance",
+      "name": "Importance",
+      "type": "Integer",
+      "localized": false,
+      "required": false,
+      "validations": [
+        {
+          "range": {
+            "min": 0,
+            "max": 1000
+          }
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "userStories",
+      "name": "User stories",
+      "type": "RichText",
+      "localized": true,
+      "required": false,
+      "validations": [
+        {
+          "enabledMarks": [
+            "bold"
+          ],
+          "message": "Only bold marks are allowed"
+        },
+        {
+          "enabledNodeTypes": [
+            "heading-2",
+            "heading-3",
+            "heading-4",
+            "heading-5",
+            "heading-6",
+            "ordered-list",
+            "unordered-list",
+            "embedded-asset-block",
+            "hyperlink"
+          ],
+          "message": "Only heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, asset, and link to Url nodes are allowed"
+        },
+        {
+          "nodes": {}
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "featuredImage",
+      "name": "Featured image",
+      "type": "Link",
+      "localized": false,
+      "required": false,
+      "validations": [
+        {
+          "linkMimetypeGroup": [
+            "image"
+          ]
+        },
+        {
+          "assetImageDimensions": {
+            "width": {
+              "min": 1200,
+              "max": null
+            },
+            "height": {
+              "min": 630,
+              "max": null
+            }
+          },
+          "message": "Image must be at least 1200 x 630 pixels"
+        }
+      ],
+      "disabled": false,
+      "omitted": false,
+      "linkType": "Asset"
+    }
+  ]
+}

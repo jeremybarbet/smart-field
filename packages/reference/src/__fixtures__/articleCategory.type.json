@@ -1,0 +1,91 @@
+{
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "8k0h54kbe6bj"
+      }
+    },
+    "id": "articleCategory",
+    "type": "ContentType",
+    "createdAt": "2020-06-07T18:58:04.902Z",
+    "updatedAt": "2020-08-07T15:54:49.508Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 9,
+    "publishedAt": "2020-08-07T15:54:49.508Z",
+    "firstPublishedAt": "2020-06-07T18:58:05.535Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "0j5mny0PkwcNN2DHmXicwi"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    },
+    "publishedCounter": 5,
+    "version": 10,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "18mNhLgFuBUtbhkhlVSY94"
+      }
+    }
+  },
+  "displayField": "title",
+  "name": "Article category",
+  "description": "",
+  "fields": [
+    {
+      "id": "title",
+      "name": "Title",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "unique": true
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "slug",
+      "name": "Slug",
+      "type": "Symbol",
+      "localized": true,
+      "required": true,
+      "validations": [
+        {
+          "unique": true
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "description",
+      "name": "Description",
+      "type": "Text",
+      "localized": true,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    }
+  ]
+}

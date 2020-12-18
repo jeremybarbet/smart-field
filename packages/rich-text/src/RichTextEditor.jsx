@@ -67,6 +67,9 @@ const styles = {
 };
 
 const createSlateValue = (contentfulDocument) => {
+  console.log('-contentfulDocument', contentfulDocument);
+  console.log('-schema', schema);
+
   const document = toSlatejsDocument({
     document: contentfulDocument,
     schema,
@@ -123,10 +126,27 @@ export class ConnectedRichTextEditor extends React.Component {
 
   state = {
     lastOperations: List(),
-    value:
+    /* value:
       this.props.value && this.props.value.nodeType === BLOCKS.DOCUMENT
         ? createSlateValue(this.props.value)
         : EMPTY_SLATE_DOCUMENT,
+        */
+    value: Value.fromJSON({
+      document: {
+        nodes: [
+          {
+            object: 'block',
+            type: 'paragraph',
+            nodes: [
+              {
+                object: 'text',
+                text: 'A line of text in a paragraph.',
+              },
+            ],
+          },
+        ],
+      },
+    }),
   };
 
   editor = React.createRef();
@@ -156,6 +176,8 @@ export class ConnectedRichTextEditor extends React.Component {
   }
 
   callOnChange = debounce(() => {
+    console.log('-this.state.value.document', this.state.value.document);
+
     const doc = toContentfulDocument({
       document: this.state.value.document.toJSON(),
       schema,
@@ -189,12 +211,16 @@ export class ConnectedRichTextEditor extends React.Component {
   };
 
   render() {
+    console.log('-value', this.state.value);
+
     const classNames = cx(
       styles.editor,
       this.props.minHeight !== undefined ? css({ minHeight: this.props.minHeight }) : undefined,
       this.props.isDisabled ? styles.disabled : styles.enabled,
       this.props.isToolbarHidden && styles.hiddenToolbar
     );
+
+    console.log('-this.state.value', this.state.value);
 
     return (
       <div className={styles.root} data-test-id="rich-text-editor">
@@ -249,6 +275,9 @@ function isRelevantOperation(op) {
 export default function RichTextEditor(props) {
   /* eslint-disable react/prop-types */
   const { sdk, isInitiallyDisabled, ...otherProps } = props;
+  // console.log('-sdk', sdk);
+  // console.log('-otherProps', otherProps);
+
   return (
     <EntityProvider sdk={sdk}>
       <FieldConnector
@@ -261,7 +290,13 @@ export default function RichTextEditor(props) {
         isEqualValues={(value1, value2) => {
           return deepEquals(value1, value2);
         }}>
-        {({ lastRemoteValue, disabled, setValue, externalReset }) => {
+        {({ lastRemoteValue, disabled, setValue, externalReset, ...rest }) => {
+          // console.log('-lastRemoteValue', lastRemoteValue);
+          // console.log('-disabled', disabled);
+          // console.log('-setValue', setValue);
+          // console.log('-externalReset', externalReset);
+          console.log('-rest', rest);
+
           return (
             <ConnectedRichTextEditor
               {...otherProps}
